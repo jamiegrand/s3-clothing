@@ -210,8 +210,7 @@
     <section class="page-head">
       <div class="wrap">
         <p class="crumbs"><a href="index.html">Home</a><span class="sep">/</span>Shop On Course</p>
-        <p class="eyebrow" style="margin-top:18px"></p>
-        <h1>On Course</h1>
+        <h1 style="margin-top:18px">On Course</h1>
         <p>Technical polos, mid-layers and accessories built to move with your swing and hold up through eighteen.</p>
       </div>
     </section>
@@ -317,6 +316,10 @@
     cursor: pointer; transition: transform .15s; padding: 0; }
   .swatch-dot:hover { transform: scale(1.08); }
   .swatch-dot.is-active { outline: 2px solid var(--pine); outline-offset: 2px; }
+  .swatch-dot.sw-ink { background: var(--ink); }
+  .swatch-dot.sw-bone { background: var(--bone); }
+  .swatch-dot.sw-pine { background: var(--pine); }
+  .swatch-dot.sw-sand { background: var(--sand); }
   .sizes { display: flex; gap: 10px; flex-wrap: wrap; }
   .size-pill { font-family: var(--f-mono); font-size: .78rem; letter-spacing: .06em; min-width: 46px;
     text-align: center; padding: .7em .6em; border: 1.5px solid var(--bone-d); border-radius: 2px;
@@ -414,10 +417,10 @@
           <p class="lede">Our bestselling colour-block polo, cut for movement and finished for the clubhouse — recycled performance fabric that plays as long as you do.</p>
           <div class="opt"><span class="opt-label">Colour</span>
             <div class="swatches">
-              <button class="swatch-dot is-active" style="background:#14110d" aria-label="Black"></button>
-              <button class="swatch-dot" style="background:#f3eee3" aria-label="Bone"></button>
-              <button class="swatch-dot" style="background:#102a22" aria-label="Pine"></button>
-              <button class="swatch-dot" style="background:#c29a63" aria-label="Sand"></button>
+              <button class="swatch-dot sw-ink is-active" aria-label="Black"></button>
+              <button class="swatch-dot sw-bone" aria-label="Bone"></button>
+              <button class="swatch-dot sw-pine" aria-label="Pine"></button>
+              <button class="swatch-dot sw-sand" aria-label="Sand"></button>
             </div>
           </div>
           <div class="opt"><span class="opt-label">Size</span>
