@@ -1143,3 +1143,12 @@
 .auth .panel { background: #fff; border: 1px solid var(--bone-d); border-radius: 4px; padding: clamp(26px, 3vw, 44px); }
 .auth h2 { font-family: var(--f-display); text-transform: uppercase; font-size: 1.8rem; margin-bottom: 20px; }
 @media (max-width: 780px) { .auth { grid-template-columns: 1fr; } }
+
+/* ================= 404 ================= */
+.notfound { background: var(--pine); color: var(--bone); min-height: 70vh; display: flex;
+  flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: var(--gut); }
+.notfound .code { font-family: var(--f-mono); color: var(--sand); letter-spacing: .2em; text-transform: uppercase; }
+.notfound h1 { font-family: var(--f-display); text-transform: uppercase;
+  font-size: clamp(3rem, 10vw, 7rem); line-height: .9; margin: 14px 0; }
+.notfound h1 em { font-style: normal; color: var(--flag); }
+.notfound p { color: #cdd9d0; max-width: 40ch; margin: 0 0 26px; }
