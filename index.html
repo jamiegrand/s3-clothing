@@ -275,6 +275,26 @@
         }
       }
 
+      /* desktop: show the WHOLE photo (uncropped) pushed to the left; pine letterboxes
+         the right, and the text card sits on the pine so it never covers the golfer */
+      @media (min-width: 781px) {
+        .hero-photo {
+          object-fit: contain;
+          object-position: left bottom;
+        }
+        .hero-scrim {
+          background: linear-gradient(
+            to right,
+            rgba(10, 24, 19, 0) 42%,
+            rgba(10, 24, 19, 0.5) 64%,
+            rgba(10, 24, 19, 0.72) 100%
+          );
+        }
+        .hero-stage-wrap {
+          justify-content: flex-end;
+        }
+      }
+
       /* solid text card — contrast guaranteed no matter the photo */
       .hero-card {
         max-width: 560px;
