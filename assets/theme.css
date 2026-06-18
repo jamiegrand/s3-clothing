@@ -1152,3 +1152,10 @@
   font-size: clamp(3rem, 10vw, 7rem); line-height: .9; margin: 14px 0; }
 .notfound h1 em { font-style: normal; color: var(--flag); }
 .notfound p { color: #cdd9d0; max-width: 40ch; margin: 0 0 26px; }
+
+/* ===== Stretched link: make the whole product card clickable =====
+   Applies only where the product name is a link (a.name) — collection,
+   search and related-product grids. The homepage uses <span class="name">,
+   so its cards are unaffected. */
+.card { position: relative; }
+a.name::after { content: ""; position: absolute; inset: 0; z-index: 1; }
