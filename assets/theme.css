@@ -1122,3 +1122,12 @@
 .cart-empty h2 { font-family: var(--f-display); text-transform: uppercase; font-size: clamp(2rem,5vw,3rem); }
 .cart-empty p { color: #5b5345; margin: 14px 0 26px; }
 @media (max-width: 900px) { .cart { grid-template-columns: 1fr; } }
+
+/* ================= SEARCH ================= */
+.searchbox { display: flex; gap: 10px; max-width: 560px; margin-top: 18px; }
+.searchbox input { flex: 1; border: 1.5px solid rgba(243,238,227,.5); background: rgba(10,24,19,.4);
+  border-radius: 2px; padding: .9em 1.1em; font-family: var(--f-body); font-size: 1rem; color: var(--bone); }
+.searchbox input::placeholder { color: var(--sage); }
+.no-results { text-align: center; padding: clamp(48px, 8vw, 96px) 0; color: #5b5345; }
+.no-results h2 { font-family: var(--f-display); text-transform: uppercase; color: var(--ink);
+  font-size: clamp(1.8rem,4vw,2.6rem); margin-bottom: 12px; }
