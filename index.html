@@ -232,13 +232,13 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        /* desktop: crop lowered to show the outfit (polo + trousers); trims head/club */
-        object-position: 48% 44%;
+        /* landscape hero — keep the golfer (right side) and his face in frame */
+        object-position: 64% 40%;
       }
       @media (max-width: 780px) {
         .hero-photo {
-          /* mobile: face-focused crop for the compact card */
-          object-position: 48% 15%;
+          /* mobile crops the sides — bias right so the golfer stays in view */
+          object-position: 74% 34%;
         }
       }
       /* smart overlay — seats the card & deepens the lower-left, leaves the rest of the photo natural */
@@ -276,6 +276,7 @@
           max-width: none;
         }
       }
+
 
 
       /* solid text card — contrast guaranteed no matter the photo */
@@ -1050,7 +1051,7 @@
         <!-- ▸ MONTHLY: hero image — swap the src + update the alt text to match the new photo -->
         <img
           class="hero-photo"
-          src="PHOTO-2026-06-15-13-34-41%206.jpg"
+          src="hero.jpg"
           alt="Golfer in an S3 polo playing out of a greenside bunker, sand spraying"
           fetchpriority="high"
         />
