@@ -1131,3 +1131,15 @@
 .no-results { text-align: center; padding: clamp(48px, 8vw, 96px) 0; color: #5b5345; }
 .no-results h2 { font-family: var(--f-display); text-transform: uppercase; color: var(--ink);
   font-size: clamp(1.8rem,4vw,2.6rem); margin-bottom: 12px; }
+
+/* ================= FORMS / AUTH ================= */
+.field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+.field label { font-family: var(--f-mono); font-size: .66rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--sand-text); }
+.field input { border: 1.5px solid var(--bone-d); border-radius: 2px; padding: .9em 1.1em;
+  font-family: var(--f-body); font-size: 1rem; color: var(--ink); background: #fff; }
+.field input:focus { border-color: var(--pine); outline: none; }
+.auth { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 56px); }
+.auth .panel { background: #fff; border: 1px solid var(--bone-d); border-radius: 4px; padding: clamp(26px, 3vw, 44px); }
+.auth h2 { font-family: var(--f-display); text-transform: uppercase; font-size: 1.8rem; margin-bottom: 20px; }
+@media (max-width: 780px) { .auth { grid-template-columns: 1fr; } }
