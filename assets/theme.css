@@ -1035,6 +1035,8 @@
 .pager .num { border: 1.5px solid var(--bone-d); border-radius: 2px; }
 .pager .num.is-current { background: var(--pine); color: var(--bone); border-color: var(--pine); }
 
+@media (max-width: 560px) { .filterbar .wrap { gap: 10px; } .filterbar .chips { order: 2; } }
+
 /* ================= PRODUCT PAGE ================= */
 .pdp { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px, 4vw, 64px); align-items: start; }
 .gallery .main { aspect-ratio: 4/5; background: #f4f2ec; border: 1px solid var(--bone-d);
@@ -1089,4 +1091,3 @@
 .acc-panel-inner { overflow: hidden; color: #5b5345; }
 .acc-panel-inner p { margin: 0 0 18px; }
 @media (max-width: 900px) { .pdp { grid-template-columns: 1fr; } }
-@media (max-width: 560px) { .filterbar .wrap { gap: 10px; } .filterbar .chips { order: 2; } }
