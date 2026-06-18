@@ -154,6 +154,27 @@
   .hero-actions{display:flex;flex-wrap:wrap;gap:14px;animation:fade .8s ease .65s both;}
   @keyframes fade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
 
+  /* "Read more" toggle — desktop hides it and always shows the full content */
+  .hero-toggle{display:none;}
+
+  @media(max-width:780px){
+    /* compact card: title only, with a tap-to-expand toggle so the photo stays visible */
+    .hero-toggle{
+      display:inline-flex;align-items:center;gap:.55em;margin-top:18px;
+      font-family:var(--f-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+      color:var(--flag);background:none;border:0;padding:6px 0;cursor:pointer;
+    }
+    .hero-toggle .chev{font-size:1.25em;line-height:1;transition:transform .3s ease;}
+    .hero-toggle[aria-expanded="true"] .chev{transform:rotate(45deg);}
+    .hero-more{
+      display:grid;grid-template-rows:0fr;visibility:hidden;
+      transition:grid-template-rows .42s ease,visibility .42s;
+    }
+    .hero-more-inner{overflow:hidden;}
+    .hero-card.is-open .hero-more{grid-template-rows:1fr;visibility:visible;}
+    .hero-sub{margin-top:18px;}
+  }
+
   /* scorecard band sits on solid pine below the photo */
   .hero-score{padding-bottom:clamp(12px,2vw,26px);}
   .hero-score .scorecard{margin-top:0;}
@@ -375,10 +396,18 @@
           <span class="line"><span>the <span class="accent">front&nbsp;nine</span></span></span>
           <span class="line"><span>&amp; everything after.</span></span>
         </h1>
-        <p class="hero-sub">Signature golf wear engineered for the swing and styled for the clubhouse — made with recycled and responsible materials that play as long as you do.</p>
-        <div class="hero-actions">
-          <a class="btn btn-solid" href="#collection">Shop on course <span class="arw">→</span></a>
-          <a class="btn btn-line" href="#split">Shop off course <span class="arw">→</span></a>
+        <!-- toggle shows on mobile only; desktop always shows the full content below -->
+        <button class="hero-toggle" type="button" aria-expanded="false" aria-controls="hero-more">
+          <span class="label">Read more</span><span class="chev" aria-hidden="true">+</span>
+        </button>
+        <div class="hero-more" id="hero-more">
+          <div class="hero-more-inner">
+            <p class="hero-sub">Signature golf wear engineered for the swing and styled for the clubhouse — made with recycled and responsible materials that play as long as you do.</p>
+            <div class="hero-actions">
+              <a class="btn btn-solid" href="#collection">Shop on course <span class="arw">→</span></a>
+              <a class="btn btn-line" href="#split">Shop off course <span class="arw">→</span></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -568,6 +597,21 @@
     </div>
   </div>
 </footer>
+
+<script>
+  /* Mobile hero "Read more" toggle — expands the card to the full content */
+  (function () {
+    var card = document.querySelector('.hero-card');
+    var btn = card && card.querySelector('.hero-toggle');
+    if (!card || !btn) return;
+    var label = btn.querySelector('.label');
+    btn.addEventListener('click', function () {
+      var open = card.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (label) label.textContent = open ? 'Show less' : 'Read more';
+    });
+  })();
+</script>
 
 </body>
 </html>
