@@ -10,3 +10,12 @@
           if (label) label.textContent = open ? "Show less" : "Read more";
         });
       })();
+
+/* Collection filter chips — visual toggle only (mockup) */
+document.querySelectorAll('.chips').forEach(function (group) {
+  group.addEventListener('click', function (e) {
+    var chip = e.target.closest('.chip');
+    if (!chip) return;
+    chip.classList.toggle('is-active');
+  });
+});
