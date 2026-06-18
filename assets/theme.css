@@ -1034,4 +1034,59 @@
 .pager a, .pager span { padding: .6em .9em; }
 .pager .num { border: 1.5px solid var(--bone-d); border-radius: 2px; }
 .pager .num.is-current { background: var(--pine); color: var(--bone); border-color: var(--pine); }
+
+/* ================= PRODUCT PAGE ================= */
+.pdp { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px, 4vw, 64px); align-items: start; }
+.gallery .main { aspect-ratio: 4/5; background: #f4f2ec; border: 1px solid var(--bone-d);
+  border-radius: 4px; overflow: hidden; }
+.gallery .main img { width: 100%; height: 100%; object-fit: cover; }
+.thumbs { display: flex; gap: 12px; margin-top: 12px; }
+.thumb { width: 72px; aspect-ratio: 4/5; border: 1.5px solid var(--bone-d); border-radius: 2px;
+  overflow: hidden; cursor: pointer; background: #f4f2ec; padding: 0; }
+.thumb.is-active { border-color: var(--pine); }
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.pdp-info .eyebrow { color: var(--sand-text); }
+.pdp-info h1 { font-family: var(--f-display); text-transform: uppercase;
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem); line-height: 1; margin-top: 10px; letter-spacing: .01em; }
+.pdp-info .price { font-family: var(--f-mono); font-size: 1.3rem; margin-top: 12px; }
+.pdp-info .lede { color: #5b5345; margin: 18px 0 0; max-width: 46ch; }
+.opt { margin-top: 26px; }
+.opt .opt-label { font-family: var(--f-mono); font-size: .68rem; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--sand-text); display: block; margin-bottom: 12px; }
+.swatches { display: flex; gap: 12px; }
+.swatch-dot { width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid var(--bone-d);
+  cursor: pointer; transition: transform .15s; padding: 0; }
+.swatch-dot:hover { transform: scale(1.08); }
+.swatch-dot.is-active { outline: 2px solid var(--pine); outline-offset: 2px; }
+.swatch-dot.sw-ink { background: var(--ink); }
+.swatch-dot.sw-bone { background: var(--bone); }
+.swatch-dot.sw-pine { background: var(--pine); }
+.swatch-dot.sw-sand { background: var(--sand); }
+.sizes { display: flex; gap: 10px; flex-wrap: wrap; }
+.size-pill { font-family: var(--f-mono); font-size: .78rem; letter-spacing: .06em; min-width: 46px;
+  text-align: center; padding: .7em .6em; border: 1.5px solid var(--bone-d); border-radius: 2px;
+  background: #fff; color: var(--ink); cursor: pointer; transition: border-color .2s, background .2s, color .2s; }
+.size-pill:hover { border-color: var(--pine); }
+.size-pill.is-active { background: var(--pine); color: var(--bone); border-color: var(--pine); }
+.size-pill[aria-disabled="true"] { opacity: .4; cursor: not-allowed; text-decoration: line-through; }
+.qty { display: inline-flex; align-items: center; border: 1.5px solid var(--ink); border-radius: 2px; }
+.qty button { width: 42px; height: 42px; background: transparent; border: 0; font-family: var(--f-mono);
+  font-size: 1.1rem; cursor: pointer; color: var(--ink); }
+.qty button:hover { background: var(--bone-d); }
+.qty input { width: 44px; text-align: center; border: 0; border-inline: 1.5px solid var(--ink);
+  font-family: var(--f-mono); font-size: .9rem; padding: .6em 0; background: transparent; -moz-appearance: textfield; }
+.qty input::-webkit-outer-spin-button, .qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.btn-block { width: 100%; justify-content: center; margin-top: 24px; }
+.acc { border-top: 1px solid var(--bone-d); margin-top: 34px; }
+.acc-item { border-bottom: 1px solid var(--bone-d); }
+.acc-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  background: none; border: 0; padding: 18px 0; cursor: pointer; font-family: var(--f-body);
+  font-weight: 600; font-size: 1rem; color: var(--ink); text-align: left; }
+.acc-trigger .ico { font-family: var(--f-mono); transition: transform .25s; }
+.acc-trigger[aria-expanded="true"] .ico { transform: rotate(45deg); }
+.acc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
+.acc-item.is-open .acc-panel { grid-template-rows: 1fr; }
+.acc-panel-inner { overflow: hidden; color: #5b5345; }
+.acc-panel-inner p { margin: 0 0 18px; }
+@media (max-width: 900px) { .pdp { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .filterbar .wrap { gap: 10px; } .filterbar .chips { order: 2; } }
