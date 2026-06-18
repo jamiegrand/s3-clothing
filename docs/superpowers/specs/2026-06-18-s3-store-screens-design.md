@@ -14,6 +14,10 @@ throwaway).
 
 **In scope:** Collection/listing, Product detail, Cart, and the supporting screens (search,
 about, account, 404), plus extracting the homepage's design system into a shared stylesheet.
+Screens use **real product, category, and pricing data from the live store**
+(https://www.s3clothing.com/, currently on Wix). During the refactor the homepage's three
+placeholder prices (£68/£94/£98) are corrected to the real prices (see Real store data below)
+— layout stays pixel-identical, only the price numbers change.
 
 **Out of scope (later phases):** the actual Shopify theme (Liquid sections/snippets/schema,
 CLI, dev store), real cart/checkout behaviour, real product data wiring, CMS/admin.
@@ -72,6 +76,53 @@ Extracted verbatim from the homepage where it already exists; organised into fou
 Shared **nav** and **footer** markup is kept byte-identical on every page (verified by diff);
 visual consistency is enforced by the styling living in `theme.css`.
 
+## Real store data (from https://www.s3clothing.com/)
+
+The live store runs on Wix; this is reference data for content, not a structure to import.
+Brand also trades as **Sweet Spot Styles**. Social: Instagram (@sweetspotstyles____),
+TikTok (@sweet.spot.styles), Facebook.
+
+**Navigation / categories** (mirror the live IA): Home · Shop On Course (Ladies, Mens, Golf
+Accessories) · Shop Off Course · About (Our Story) · Contact. Category URL pattern on the live
+site is `/category/<name>`, products `/product-page/<slug>` — our static mockups use flat files
+(`collection.html`, `product.html`) but the nav labels match.
+
+**Products & prices (GBP)** — used to populate the grids and the product page:
+
+| Product | Price | Category |
+|---|---|---|
+| Signature Block Polo | £37.99 | Mens / On course |
+| Signature Panelled Shirt | £37.99 | On course |
+| GeoLine Performance Polo | £38.99 | On course |
+| S3 Tour Mid Layer | £44.99 | On course |
+| Core Ribbed Mid Layer | £44.99 | On course |
+| Tour Performance Mid Layer | £44.99 | On course |
+| Performance Mid Layer / Frill Luxe Mid Layer | £39.99 | On course |
+| S3 Essential Gilet | £39.99 | On course |
+| Ladies Padded Gilet | £49.99 | Ladies |
+| Floral Pattern Skort | £39.99 | Ladies |
+| Icon Flare Dress | £44.99 | Ladies |
+| High Waisted Pull On Trousers | £44.99 | Ladies / Off course |
+| Pull On Full Stretch Capris | £39.99 | Ladies |
+| Floral Sleeveless Shirt | £34.99 | Ladies |
+| Performance Golf Joggers | £39.99 | Off course |
+| Fleece Lined Snoods | £14.99 | Accessories |
+| S3 Fleece Lined Mittens | £18.99 | Accessories |
+| Lined Bobble Hat / Cable Bobble Hats | £14.99 | Accessories |
+
+**Images:** reuse the real product/lifestyle images already in the repo (the `fad824_*.png`
+product shots map to Signature Block Polo, S3 Tour Mid Layer, and a mid-layer; the `PHOTO-*.jpg`
+and `hero.jpg` are lifestyle shots). Grids are filled by repeating these real assets rather than
+hotlinking the live Wix CDN. If more product imagery is needed it can be sourced from the live
+site later.
+
+**Featured product for `product.html`:** Signature Block Polo (£37.99) — we have its product
+image (`fad824_236eeeb7fd4743568e5cbca667edcc9c~mv2.png`).
+
+**Homepage price correction:** the homepage's three cards become £37.99 / £44.99 / £37.99
+(Signature Block Polo / S3 Tour Mid Layer / Signature Full-Zip→Signature Panelled Shirt naming
+stays as-is on the card unless changed separately).
+
 ## Screen designs
 
 All screens: sticky pine nav, shared footer, Anton display caps, mono labels, flag-yellow
@@ -84,11 +135,16 @@ accent, scorecard/clubhouse motif. Same responsive breakpoints as the homepage
 - Sticky filter/sort bar (mono labels): filter chips (Category, Colour, Size, Price) left;
   result count + Sort dropdown right.
 - Product grid reusing the homepage `.card` exactly (scorecol strip, swatch, name/price/tag),
-  populated with the 3 real products plus repeats to fill the grid.
+  populated with real products and prices from the data table (e.g. Signature Block Polo
+  £37.99, S3 Tour Mid Layer £44.99, GeoLine Performance Polo £38.99…), reusing the repo's
+  product images.
+- Filter chips reflect the real IA: Category (Ladies / Mens / Golf Accessories / Sale),
+  Colour, Size, Price.
 - Pagination as a scorecard-style strip ("Hole 1 of 3 · Next →").
 
 ### product.html — Product detail
 - Two columns: left = image gallery (large image + thumbnail rail); right = info column.
+- Featured product: Signature Block Polo, £37.99 (real data; repo product image).
 - Info column: eyebrow ("On course · Polo"), Anton product name, mono price; colour-swatch
   picker + size-pill picker; quantity stepper; full-width flag-yellow Add-to-cart
   (`.btn-solid`); accordion for Details / Materials / Sizing & care.
